@@ -5,4 +5,4 @@ VPATH += sources/app/pig_fury
 
 DIR = sources/app/pig_fury
 # CPP source files
-SOURCES_CPP += $(DIR)/pig_fury_game.cpp \
+SOURCES_CPP += $(DIR)/pf_game.cpp \
