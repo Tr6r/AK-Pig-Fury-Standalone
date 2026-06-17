@@ -7,10 +7,10 @@
 class pig_fury_game
 {
 public:
-    pig_fury_game() = default;
-    ~pig_fury_game() = default;
-    void init();
-    void process();
+	pig_fury_game() = default;
+	~pig_fury_game() = default;
+	void init();
+	void process();
 private:
 };
 
