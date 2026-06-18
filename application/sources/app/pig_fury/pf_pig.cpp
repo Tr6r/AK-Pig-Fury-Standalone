@@ -1,1 +1,46 @@
+#include "view_render.h"
+
 #include "pf_pig.h"
+
+static const uint8_t pig_bitmap[] =
+{
+	0x07, 0xF0,
+	0x78, 0x0E,
+	0x88, 0x09,
+	0x50, 0xAA,
+	0x30, 0xA6,
+	0x10, 0x04,
+	0x08, 0x54,
+	0x08, 0x08,
+	0x37, 0xF4,
+	0x40, 0x02,
+	0x90, 0x09,
+	0xA8, 0x15,
+	0xA8, 0x15,
+	0xC8, 0x13,
+	0x11, 0x88,
+	0x11, 0x88,
+	0x21, 0x84,
+	0x3F, 0xFC
+};
+
+void pf_pig::init()
+{
+	hp_ = 10;
+	pig_st_ = PF_PIG_ST_NONE;
+	atk_st_ = PF_PIG_ATTACK_ST_NONE;
+	pos_x_ = PIG_POS_X;
+	pos_y_ = PIG_POS_Y;
+	width_ = PIG_WIDTH;
+	height_ = PIG_HEIGHT;
+	char_st_ = PF_CHAR_ST_IDLE;
+	dir_ = RIGHT;
+}
+
+void pf_pig::render()
+{
+	view_render.drawBitmap(PIG_POS_X, PIG_POS_Y, pig_bitmap,
+							PIG_WIDTH, PIG_HEIGHT, WHITE);
+}
+
+void pf_pig::update(){}

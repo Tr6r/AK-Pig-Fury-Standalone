@@ -5,7 +5,15 @@
 
 #include "app.h"
 
+#include "task_display.h"
+
 #include "pf_char.h"
+
+#define MAX_HP 10
+#define PIG_WIDTH 16
+#define PIG_HEIGHT 18
+#define PIG_POS_X (LCD_WIDTH - PIG_WIDTH)/2
+#define PIG_POS_Y (LCD_HEIGHT - PIG_HEIGHT)
 
 enum pf_pig_st : uint8_t
 {
@@ -25,7 +33,7 @@ enum pf_atk_st : uint8_t
 class pf_pig : public pf_char
 {
 public:
-	pf_pig();
+	pf_pig() = default;
 	~pf_pig() override = default;
 
 	void update() override;
@@ -39,16 +47,16 @@ public:
 
 	// getter
 	uint8_t get_hp() { return hp_;}
-	pf_pig_st get_st() { return st_;}
+	pf_pig_st get_st() { return pig_st_;}
 	pf_atk_st get_atk_st() { return atk_st_;}
 
 	// setter
-	void set_st(pf_pig_st st) { st_ = st;}
+	void set_st(pf_pig_st st) { pig_st_ = st;}
 	void set_atk_st(pf_atk_st atk_st) { atk_st_ = atk_st;}
 
 private:
 	uint8_t hp_;
-	pf_pig_st st_;
+	pf_pig_st pig_st_;
 	pf_atk_st atk_st_;
 };
 
