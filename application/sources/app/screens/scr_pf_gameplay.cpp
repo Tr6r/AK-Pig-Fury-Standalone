@@ -1,4 +1,5 @@
 #include "scr_pf_gameplay.h"
+#include "pf_game.h"
 
 static void view_scr_pf_gameplay();
 
@@ -17,10 +18,7 @@ view_screen_t scr_pf_gameplay = {
 };
 
 void view_scr_pf_gameplay() {
-	view_render.clear();
-	view_render.setTextSize(1);
-	view_render.setTextColor(WHITE);
-	view_render.print("pf_gameplay");
+	pf_game_render();
 }
 
 void scr_pf_gameplay_handle(ak_msg_t *msg) {
