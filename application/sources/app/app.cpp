@@ -168,9 +168,6 @@ int main_app() {
 	// BUZZER_Init();
 	// BUZZER_PlaySound(BUZZER_SOUND_STARTUP);
 
-	/* game pig_fury init*/
-	pf_game_init();
-
 	/* get boot share data */
 	flash_read(APP_FLASH_INTTERNAL_SHARE_DATA_SECTOR_1, reinterpret_cast<uint8_t*>(&boot_app_share_data), sizeof(boot_app_share_data_t));
 	if (boot_app_share_data.is_power_on_reset == SYS_POWER_ON_RESET) {
