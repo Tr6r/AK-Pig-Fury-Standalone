@@ -9,9 +9,9 @@
 
 #include "pf_char.h"
 
-#define MAX_HP 10
-#define PIG_WIDTH 16
-#define PIG_HEIGHT 18
+#define MAX_HP 3
+#define PIG_WIDTH 18
+#define PIG_HEIGHT 27
 #define PIG_POS_X (LCD_WIDTH - PIG_WIDTH)/2
 #define PIG_POS_Y (LCD_HEIGHT - PIG_HEIGHT)
 
