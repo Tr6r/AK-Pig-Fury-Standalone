@@ -187,6 +187,22 @@ enum {
 };
 
 /*****************************************************************************/
+/* Pig fury game task define
+ */
+/*****************************************************************************/
+/* define timer */
+/* define signal */
+enum {
+	AC_PF_GAME_INIT = AK_USER_DEFINE_SIG,
+	AC_PF_GAME_START,
+	AC_PF_GAME_STOP,
+	AC_PF_BTN_LEFT_PRESS,
+	AC_PF_BTN_RIGHT_PRESS,
+	AC_PF_BTN_MODE_PRESS,
+	AC_PF_UPDATE
+};
+
+/*****************************************************************************/
 /*  app function declare
  */
 /*****************************************************************************/

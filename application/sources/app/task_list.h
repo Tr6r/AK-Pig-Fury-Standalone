@@ -45,6 +45,9 @@ enum {
 	AC_LINK_ID,
 #endif
 
+	/* PIG FURY GAME ID*/
+	AC_TASK_PF_GAME_ID,
+
 	/* EOT task ID */
 	AK_TASK_EOT_ID,
 };
@@ -91,6 +94,9 @@ extern void task_link(ak_msg_t*);
 
 /* RF24 DEMO TASK */
 extern void task_rf24_demo(ak_msg_t*);
+
+/* PIG FURY GAME TASK */
+extern void task_pf_game(ak_msg_t*);
 
 /*****************************************************************************/
 /*  DECLARE: Task polling
