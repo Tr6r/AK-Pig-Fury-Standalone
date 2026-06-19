@@ -5,7 +5,7 @@
 #include "screens.h"
 
 #define LCD_WIDTH			(124)
-#define LCD_HEIGHT			(60)
+#define LCD_HEIGHT			(64)
 
 #define NUMFLAKES			(10)
 #define XPOS				(0)
