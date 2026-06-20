@@ -14,13 +14,15 @@ public:
 	void init();
 	void update();
 	void render();
+	void pig_attack(pf_char_dir dir);
 
 private:
 	pf_pig pig_;
 };
 
-extern pig_fury_game game;
 void pf_game_init();
+void pf_game_update();
 void pf_game_render();
+void pf_pig_atk(pf_char_dir dir);
 
 #endif //__PF_GAME_H__
