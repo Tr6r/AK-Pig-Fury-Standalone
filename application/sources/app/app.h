@@ -132,7 +132,7 @@ enum {
 /*****************************************************************************/
 /* define timer */
 #define AC_DISPLAY_INITIAL_INTERVAL									(100)
-#define AC_DISPLAY_STARTUP_INTERVAL									(2000)
+#define AC_DISPLAY_STARTUP_INTERVAL									(100)
 #define AC_DISPLAY_LOGO_INTERVAL									(10000)
 #define AC_DISPLAY_SHOW_IDLE_BALL_MOVING_UPDATE_INTERAL				(150)
 #define AC_DISPLAY_SHOW_MERRY_CHRISTMAS_SNOW_MOVING_UPDATE_INTERAL	(150)
@@ -159,7 +159,8 @@ enum {
 	AC_DISPLAY_SHOW_MERRY_CHRISTMAS_SNOW_MOVING_UPDATE,
 	AC_DISPLAY_SHOW_MERRY_CHRISTMAS_SLEEP,
 	AC_DISPLAY_SHOW_MODBUS_PULL_UPDATE,
-	AC_DISPLAY_SHOW_MODBUS_PULL_SLEEP
+	AC_DISPLAY_SHOW_MODBUS_PULL_SLEEP,
+	AC_DISPLAY_GAMEPLAY_UPDATE
 };
 
 /*****************************************************************************/
@@ -191,15 +192,15 @@ enum {
  */
 /*****************************************************************************/
 /* define timer */
+#define AC_DISPLAY_GAMEPLAY_UPDATE_INTERVAL_MS									(100)
 /* define signal */
 enum {
 	AC_PF_GAME_INIT = AK_USER_DEFINE_SIG,
 	AC_PF_GAME_START,
 	AC_PF_GAME_STOP,
-	AC_PF_BTN_LEFT_PRESS,
-	AC_PF_BTN_RIGHT_PRESS,
-	AC_PF_BTN_MODE_PRESS,
-	AC_PF_UPDATE
+	AC_PF_PIG_ATK,
+	AC_PF_PIG_JUMP,
+	AC_PF_PIG_SQUAT
 };
 
 /*****************************************************************************/
