@@ -18,14 +18,16 @@
 enum pf_pig_st : uint8_t
 {
 	PF_PIG_ST_NONE,
+	PF_PIG_ST_ATK,
 	PF_PIG_ST_JUMP,
 	PF_PIG_ST_SQUAT
 };
 
 enum pf_atk_st : uint8_t
 {
-	PF_PIG_ATTACK_ST_NONE,
-	PF_PIG_ATTACK_ST_PUNCH,
+	PF_PIG_ATTACK_NONE,
+	PF_PIG_ATTACK_PUNCH_LEFT,
+	PF_PIG_ATTACK_PUNCH_RIGHT,
 	PF_PIG_ATTACK_ST_SQUAT_PUNCH,
 	PF_PIG_ATTACK_ST_JUMP_KICK
 };
@@ -42,7 +44,7 @@ public:
 
 	void jump();
 	void squat();
-	void attack();
+	void attack(pf_char_dir dir);
 	void take_damage();
 
 	// getter

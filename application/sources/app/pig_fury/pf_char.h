@@ -50,6 +50,7 @@ protected:
 	uint8_t height_;
 	pf_char_st char_st_;
 	pf_char_dir dir_;
+	uint8_t atk_dur_tick_;
 };
 
 #endif //__PF_CHAR_H__
