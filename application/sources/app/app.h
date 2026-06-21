@@ -192,7 +192,7 @@ enum {
  */
 /*****************************************************************************/
 /* define timer */
-#define AC_DISPLAY_GAMEPLAY_UPDATE_INTERVAL_MS									(200)
+#define AC_DISPLAY_GAMEPLAY_UPDATE_INTERVAL_MS									(60)
 /* define signal */
 enum {
 	AC_PF_GAME_INIT = AK_USER_DEFINE_SIG,

@@ -120,21 +120,21 @@ void pf_pig::attack(pf_char_dir dir) {
 		case PF_PIG_ST_NONE: {
 			pig_st_ = PF_PIG_ST_ATK;
 			atk_st_ = PF_PIG_ATTACK_PUNCH_1;
-			atk_dur_tick_ = 2;
+			atk_dur_tick_ = 6;
 			break;
 		}
 		case PF_PIG_ST_ATK: {
 			if (atk_st_ == PF_PIG_ATTACK_PUNCH_1) {
 				atk_st_ = PF_PIG_ATTACK_PUNCH_2;
-				atk_dur_tick_ = 2;
+				atk_dur_tick_ = 6;
 			}
 			else if (atk_st_ == PF_PIG_ATTACK_PUNCH_2) {
 				atk_st_ = PF_PIG_ATTACK_PUNCH_3;
-				atk_dur_tick_ = 2;
+				atk_dur_tick_ = 6;
 			}
 			else {
 				atk_st_ = PF_PIG_ATTACK_PUNCH_1;
-				atk_dur_tick_ = 2;
+				atk_dur_tick_ = 6;
 			}
 			break;
 		}
