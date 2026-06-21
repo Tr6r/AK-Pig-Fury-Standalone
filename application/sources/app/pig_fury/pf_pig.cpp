@@ -88,63 +88,50 @@ void pf_pig::init() {
 }
 
 void pf_pig::update() {
-	if (pig_st_ == PF_PIG_ST_ATK)
-	{
-		if (atk_dur_tick_ > 0)
-			atk_dur_tick_--;
-		else
-			pig_st_ = PF_PIG_ST_NONE;
-	}
+	update_atk();
 }
 
 void pf_pig::render() {
-	switch (pig_st_) {
-		case PF_PIG_ST_NONE: {
+	render_atk();
+}
+
+void pf_pig::attack(pf_char_dir dir) {
+	dir_ = dir;
+	switch (atk_st_) {
+		case PF_PIG_ATTACK_NONE: {
+			atk_st_ = PF_PIG_ATTACK_PUNCH_1;
+			atk_dur_tick_ = 6;
+			break;
+		}
+		case PF_PIG_ATTACK_PUNCH_1: {
+			atk_st_ = PF_PIG_ATTACK_PUNCH_2;
+			atk_dur_tick_ = 6;
+			break;
+		}
+		case PF_PIG_ATTACK_PUNCH_2: {
+			atk_st_ = PF_PIG_ATTACK_PUNCH_3;
+			atk_dur_tick_ = 6;
+			break;
+		}
+		case PF_PIG_ATTACK_PUNCH_3: {
+			atk_st_ = PF_PIG_ATTACK_PUNCH_1;
+			atk_dur_tick_ = 6;
+			break;
+		}
+		default:
+			break;
+	}
+}
+
+void pf_pig::render_atk() {
+	switch (atk_st_) {
+		case PF_PIG_ATTACK_NONE: {
 			if (dir_ == LEFT)
 				view_render.drawBitmap(PIG_POS_X, PIG_POS_Y, pig_idle_left_bitmap, PIG_WIDTH, PIG_HEIGHT, WHITE);
 			else
 				view_render.drawBitmap(PIG_POS_X, PIG_POS_Y, pig_idle_right_bitmap, PIG_WIDTH, PIG_HEIGHT, WHITE);
 			break;
 		}
-		case PF_PIG_ST_ATK: {
-			render_attack();
-		}
-		default:
-			break;
-	}
-}
-
-void pf_pig::attack(pf_char_dir dir) {
-	dir_ = dir;
-	switch (pig_st_) {
-		case PF_PIG_ST_NONE: {
-			pig_st_ = PF_PIG_ST_ATK;
-			atk_st_ = PF_PIG_ATTACK_PUNCH_1;
-			atk_dur_tick_ = 6;
-			break;
-		}
-		case PF_PIG_ST_ATK: {
-			if (atk_st_ == PF_PIG_ATTACK_PUNCH_1) {
-				atk_st_ = PF_PIG_ATTACK_PUNCH_2;
-				atk_dur_tick_ = 6;
-			}
-			else if (atk_st_ == PF_PIG_ATTACK_PUNCH_2) {
-				atk_st_ = PF_PIG_ATTACK_PUNCH_3;
-				atk_dur_tick_ = 6;
-			}
-			else {
-				atk_st_ = PF_PIG_ATTACK_PUNCH_1;
-				atk_dur_tick_ = 6;
-			}
-			break;
-		}
-		default:
-			break;
-	}
-}
-
-void pf_pig::render_attack() {
-	switch (atk_st_) {
 		case PF_PIG_ATTACK_PUNCH_1: {
 			if (dir_ == LEFT)
 				view_render.drawBitmap(PIG_POS_X, PIG_POS_Y, pig_atk_1_left_bitmap, PIG_WIDTH, PIG_HEIGHT, WHITE);
@@ -168,5 +155,11 @@ void pf_pig::render_attack() {
 		}
 		default:
 			break;
+	}
+}
+void pf_pig::update_atk() {
+	if (atk_st_ != PF_PIG_ATTACK_NONE) {
+		if (atk_dur_tick_ > 0) atk_dur_tick_--;
+		else atk_st_ = PF_PIG_ATTACK_NONE;
 	}
 }
