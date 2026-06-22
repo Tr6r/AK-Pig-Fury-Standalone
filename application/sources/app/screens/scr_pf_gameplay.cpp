@@ -34,6 +34,10 @@ void scr_pf_gameplay_handle(ak_msg_t *msg) {
 			pf_game_update();
 			break;
 		}
+		case AC_DISPLAY_BUTON_MODE_PRESSED: {
+			task_post_pure_msg(AC_TASK_PF_GAME_ID, AC_PF_PIG_JUMP);
+			break;
+		}
 		case AC_DISPLAY_BUTON_UP_PRESSED: {
 			pf_char_dir dir = RIGHT;
 			task_post_common_msg(AC_TASK_PF_GAME_ID, AC_PF_PIG_ATK, (uint8_t*)&dir, sizeof(dir));
