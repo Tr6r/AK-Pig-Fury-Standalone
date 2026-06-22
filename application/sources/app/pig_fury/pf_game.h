@@ -14,8 +14,8 @@ public:
 	void init();
 	void update();
 	void render();
-	void pig_attack(pf_char_dir dir);
-
+	void pig_attack(pf_char_dir dir) {pig_.attack(dir);}
+	void pig_jump() {pig_.jump();}
 private:
 	pf_pig pig_;
 };
@@ -24,5 +24,6 @@ void pf_game_init();
 void pf_game_update();
 void pf_game_render();
 void pf_pig_atk(pf_char_dir dir);
+void pf_pig_jump();
 
 #endif //__PF_GAME_H__

@@ -10,6 +10,11 @@ void pf_pig_atk(pf_char_dir dir) {
 	game.pig_attack(dir);
 }
 
+void pf_pig_jump()
+{
+	game.pig_jump();
+}
+
 void pf_game_render() {
 	game.render();
 }
@@ -28,8 +33,4 @@ void pig_fury_game::render() {
 
 void pig_fury_game::update() {
 	pig_.update();
-}
-
-void pig_fury_game::pig_attack(pf_char_dir dir) {
-	pig_.attack(dir);
 }
