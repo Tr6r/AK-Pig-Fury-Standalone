@@ -22,6 +22,10 @@ void task_pf_game(ak_msg_t *msg) {
 			pf_pig_atk(dir);
 			break;
 		}
+		case AC_PF_PIG_JUMP: {
+			pf_pig_jump();
+			break;
+		}
 		default:
 			break;
 	}
