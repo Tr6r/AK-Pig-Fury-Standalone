@@ -7,7 +7,7 @@
 
 #include "pf_char.h"
 
-enum pf_eneymy_st : uint8_t
+enum pf_enemy_st : uint8_t
 {
 	PF_ENEMY_ST_SPAWN,
 	PF_ENEMY_ST_MOVE,
@@ -16,11 +16,11 @@ enum pf_eneymy_st : uint8_t
 	PF_ENEMY_ST_DEAD,
 };
 
-class pf_eneymy : public pf_char
+class pf_enemy : public pf_char
 {
 public:
-	pf_eneymy() = default;
-	~pf_eneymy() override = default;
+	pf_enemy() = default;
+	~pf_enemy() override = default;
 
 	virtual void update() override = 0;
 	virtual void render() override = 0;
@@ -30,16 +30,16 @@ public:
 
 	// getter
 	uint8_t get_hp() const { return hp_; }
-	pf_eneymy_st get_st() const { return st_; }
+	pf_enemy_st get_st() const { return st_; }
 
 	// setter
 	void set_hp(uint8_t hp) { hp_ = hp; }
-	void set_st(pf_eneymy_st st) { st_ = st; }
+	void set_st(pf_enemy_st st) { st_ = st; }
 
 protected:
 	uint8_t hp_;
 	uint8_t move_speed_;
-	pf_eneymy_st st_;
+	pf_enemy_st st_;
 };
 
 #endif // __PF_ENEMY_H__
