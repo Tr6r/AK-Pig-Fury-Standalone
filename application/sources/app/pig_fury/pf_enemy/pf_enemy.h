@@ -7,8 +7,7 @@
 
 #include "pf_char.h"
 
-enum pf_enemy_st : uint8_t
-{
+enum pf_enemy_st : uint8_t {
 	PF_ENEMY_ST_SPAWN,
 	PF_ENEMY_ST_MOVE,
 	PF_ENEMY_ST_ATTACK,
@@ -16,8 +15,7 @@ enum pf_enemy_st : uint8_t
 	PF_ENEMY_ST_DEAD,
 };
 
-class pf_enemy : public pf_char
-{
+class pf_enemy : public pf_char {
 public:
 	pf_enemy() = default;
 	~pf_enemy() override = default;
@@ -38,7 +36,8 @@ public:
 
 protected:
 	uint8_t hp_;
-	uint8_t move_speed_;
+	uint8_t move_st_;
+	uint8_t move_dur_tick_;
 	pf_enemy_st st_;
 };
 
