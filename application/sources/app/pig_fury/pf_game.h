@@ -5,6 +5,7 @@
 #include "app.h"
 
 #include "pf_pig.h"
+#include "pf_enemy_manager.h"
 
 class pig_fury_game
 {
@@ -16,8 +17,11 @@ public:
 	void render();
 	void pig_attack(pf_char_dir dir) {pig_.attack(dir);}
 	void pig_jump() {pig_.jump();}
+	void check_pig_attack_hit();
+
 private:
 	pf_pig pig_;
+	pf_enemy_manager enemy_mng_;
 };
 
 void pf_game_init();
