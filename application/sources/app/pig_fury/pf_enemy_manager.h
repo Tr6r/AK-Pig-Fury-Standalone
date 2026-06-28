@@ -4,8 +4,13 @@
 #include "pf_enemy.h"
 #include "pf_wolf_basic.h"
 
-#define PF_GAME_MAX_ENEMY 8
+#define PF_GAME_MAX_ENEMY 2
 #define PF_GAME_MAX_WOLF_BASIC 1
+
+enum pf_enemy_type : uint8_t {
+	PF_ENEMY_TYPE_WOLF_BASIC = 0,
+	PF_ENEMY_TYPE_COUNT
+};
 
 class pf_enemy_manager {
 public:
@@ -16,11 +21,12 @@ public:
 	void update();
 	void render();
 
-	void spawm_enemy();
-	void remove_enemy();
+	void spawn_random_enemy();
+	void spawn_wolf_basic();
+	void remove_enemy(uint8_t index);
 
 	// Getters
-	pf_enemy *get_enemy(uint8_t index);
+	pf_enemy *get_enemy(uint8_t index) { return enemies_[index]; }
 	uint8_t get_enemy_count() const { return enemy_count_; }
 
 private:
