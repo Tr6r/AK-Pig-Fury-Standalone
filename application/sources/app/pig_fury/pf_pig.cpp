@@ -141,28 +141,28 @@ void pf_pig::attack(pf_char_dir dir) {
 	dir_ = dir;
 	if (pig_st_ == PF_PIG_ST_JUMP || pig_st_ == PF_PIG_ST_FALL) {
 		atk_st_ = PF_PIG_ATTACK_ST_JUMP_KICK;
-		atk_dur_tick_ = 6;
+		atk_dur_tick_ = PIG_ATK_FRAME_TICK;
 		return;
 	}
 	switch (atk_st_) {
 		case PF_PIG_ATTACK_NONE: {
 			atk_st_ = PF_PIG_ATTACK_PUNCH_1;
-			atk_dur_tick_ = 6;
+			atk_dur_tick_ = PIG_ATK_FRAME_TICK;
 			break;
 		}
 		case PF_PIG_ATTACK_PUNCH_1: {
 			atk_st_ = PF_PIG_ATTACK_PUNCH_2;
-			atk_dur_tick_ = 6;
+			atk_dur_tick_ = PIG_ATK_FRAME_TICK;
 			break;
 		}
 		case PF_PIG_ATTACK_PUNCH_2: {
 			atk_st_ = PF_PIG_ATTACK_PUNCH_3;
-			atk_dur_tick_ = 6;
+			atk_dur_tick_ = PIG_ATK_FRAME_TICK;
 			break;
 		}
 		case PF_PIG_ATTACK_PUNCH_3: {
 			atk_st_ = PF_PIG_ATTACK_PUNCH_1;
-			atk_dur_tick_ = 6;
+			atk_dur_tick_ = PIG_ATK_FRAME_TICK;
 			break;
 		}
 		default:
