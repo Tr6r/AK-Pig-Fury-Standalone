@@ -38,6 +38,7 @@ protected:
 	uint8_t hp_;
 	uint8_t move_st_;
 	uint8_t move_dur_tick_;
+	uint8_t hit_dur_tick_;
 	pf_enemy_st st_;
 };
 
