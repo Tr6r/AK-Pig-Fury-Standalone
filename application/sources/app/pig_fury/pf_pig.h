@@ -16,7 +16,7 @@
 #define PIG_POS_Y (LCD_HEIGHT - PIG_HEIGHT)
 #define PIG_UPDATE_STEP_PIXEL 5
 #define PIG_JUMP_MAX_HEIGHT 30
-#define PIG_ATK_FRAME_TICK 5
+#define PIG_ATK_FRAME_TICK 6
 #define PIG_ATK_RANGE 2
 
 enum pf_pig_st : uint8_t
