@@ -1,4 +1,5 @@
 include sources/app/pig_fury/pf_enemy/Makefile.mk
+include sources/app/pig_fury/pf_weapon/Makefile.mk
 
 # Game
 CFLAGS		+= -I./sources/app/pig_fury
