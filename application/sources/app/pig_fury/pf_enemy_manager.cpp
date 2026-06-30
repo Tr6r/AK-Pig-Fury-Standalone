@@ -10,7 +10,7 @@ void pf_enemy_manager::update() {
 for (uint8_t i = 0; i < enemy_count_; i++)
 {
 	enemies_[i]->update();
-	if (enemies_[i]->get_st() == PF_ENEMY_ST_DEAD)
+	if (enemies_[i]->get_st() == PF_ENEMY_ST_DELETE)
 		remove_enemy(i);
 }
 }

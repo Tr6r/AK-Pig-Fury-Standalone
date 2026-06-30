@@ -14,6 +14,7 @@ enum pf_enemy_st : uint8_t {
 	PF_ENEMY_ST_HIT,
 	PF_ENEMY_ST_KNOCKBACK,
 	PF_ENEMY_ST_DEAD,
+	PF_ENEMY_ST_DELETE,
 };
 
 class pf_enemy : public pf_char {
@@ -38,8 +39,7 @@ public:
 protected:
 	uint8_t hp_;
 	uint8_t move_st_;
-	uint8_t move_dur_tick_;
-	uint8_t hit_dur_tick_;
+	uint8_t anim_duration_tick_;
 	pf_enemy_st st_;
 };
 

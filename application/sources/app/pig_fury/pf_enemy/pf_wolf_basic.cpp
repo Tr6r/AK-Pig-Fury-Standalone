@@ -9,11 +9,12 @@ void pf_wolf_basic::init(pf_char_dir dir) {
 	width_ = PF_WOLF_BASIC_WIDTH;
 	height_ = PF_WOLF_BASIC_HEIGHT;
 	char_st_ = PF_CHAR_ST_IDLE;
-	move_dur_tick_ = PF_WOLF_BASIC_MOVE_FRAME_TICK;
+	anim_duration_tick_ = PF_WOLF_BASIC_MOVE_FRAME_TICK;
 	dir_ = dir;
 }
 
 void pf_wolf_basic::update() {
+	anim_duration_tick_--;
 	switch (st_) {
 		case PF_ENEMY_ST_SPAWN:
 		case PF_ENEMY_ST_MOVE: {
@@ -28,32 +29,48 @@ void pf_wolf_basic::update() {
 			update_knockback();
 			break;
 		}
+		case PF_ENEMY_ST_DEAD: {
+			update_dead();
+			break;
+		}
 		default:
 			break;
 	}
 }
 
+void pf_wolf_basic::update_dead()
+{
+	if (anim_duration_tick_ <= 0) {
+		st_ = PF_ENEMY_ST_DELETE;
+		return;
+	}
+	if (anim_duration_tick_ >= PF_WOLF_BASIC_DEAD_FRAME_TICK /2)
+	{
+		pos_y_ -= 3;
+	}
+}
+
 void pf_wolf_basic::update_knockback()
 {
-	hit_dur_tick_--;
-	if (hit_dur_tick_ <= 0) {
+	if (anim_duration_tick_ <= 0) {
+		pos_y_ += 15;
+		anim_duration_tick_ =  PF_WOLF_BASIC_DEAD_FRAME_TICK;
 		st_ = PF_ENEMY_ST_DEAD;
 		return;
 	}
-	if (hit_dur_tick_ >= PF_WOLF_BASIC_KNOCKBACK_FRAME_TICK/2)
+	if (anim_duration_tick_ >= PF_WOLF_BASIC_KNOCKBACK_FRAME_TICK/2)
 	{
-		pos_y_ -= 1;
+		pos_y_ -= 2;
 	}
 	else 
 	{
-		pos_y_ += 1;
+		pos_y_ += 2;
 	}
-	pos_x_ += (dir_ == PF_CHAR_DIR_LEFT) ? -1 : 1;
+	pos_x_ += (dir_ == PF_CHAR_DIR_LEFT) ? -2 : 2;
 }
 
 void pf_wolf_basic::update_hit() {
-	hit_dur_tick_--;
-	switch (hit_dur_tick_)
+	switch (anim_duration_tick_)
 	{
 		case 0: {
 			st_ = PF_ENEMY_ST_MOVE;
@@ -121,9 +138,17 @@ void pf_wolf_basic::render() {
 			render_knockback();
 			break;
 		}
+		case PF_ENEMY_ST_DEAD: {
+			render_dead();
+			break;
+		}
 		default:
 			break;
 	}
+}
+
+void pf_wolf_basic::render_dead() {
+	view_render.drawBitmap(pos_x_, pos_y_,wolf_dead, PIG_WIDTH, PIG_HEIGHT, WHITE);
 }
 
 void pf_wolf_basic::render_knockback() {
@@ -172,10 +197,10 @@ void pf_wolf_basic::take_damage() {
 		return;
 	hp_ --;
 	if (hp_ == 0) {
-		hit_dur_tick_ = PF_WOLF_BASIC_KNOCKBACK_FRAME_TICK;
+		anim_duration_tick_ = PF_WOLF_BASIC_KNOCKBACK_FRAME_TICK;
 		st_ = PF_ENEMY_ST_KNOCKBACK;
 		return;
 	}
-	hit_dur_tick_ = PF_WOLF_BASIC_HIT_FRAME_TICK;
+	anim_duration_tick_ = PF_WOLF_BASIC_HIT_FRAME_TICK;
 	st_ = PF_ENEMY_ST_HIT;
 }
